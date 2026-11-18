@@ -15,13 +15,13 @@ I wrote the module that turns a 40 MHz ADC stream into physics: a Double Constan
 
 The result I'm proudest of isn't the module itself. By decomposing where the residual amplitude error actually came from, I showed that moving pileup correction off-chip cuts the error from 10.0% to 3.7% for one added field in the output protocol — and then documented why that *still* might be the wrong call, since it strips corrected data from every downstream block on the die.
 
-**[FaceGateway](https://github.com/rappudo/Embarcados-Projeto)** — facial recognition access control running entirely on a Raspberry Pi 4. I owned the C++17 edge pipeline: CSI capture, BlazeFace detection, eye-keypoint alignment, ArcFace embeddings through ONNXRuntime, and servo actuation over libgpiod.
+**[FaceGateway](https://github.com/rappudo/embedded-cv-project)** — facial recognition access control running entirely on a Raspberry Pi 4. I owned the C++17 edge pipeline: CSI capture, BlazeFace detection, eye-keypoint alignment, ArcFace embeddings through ONNXRuntime, and servo actuation over libgpiod.
 
 I built a per-stage profiler before optimizing anything, which is how I know the idle loop runs at ~70 fps and a full recognition cycle takes 648 ms — of which 634 ms is ArcFace inference alone. We missed our 500 ms target. The profiler made the reason unambiguous, and the writeup says so.
 
 Benchmarked against the 6,000 canonical LFW pairs: EER 3.22%. Production threshold is set well below the equal-error point, at FAR 0.0% / FRR 36.3% — for a door, letting the wrong person in costs more than making the right person try twice.
 
-**[Drone route optimizer](https://github.com/rappudo/Drone-com-otimizador-de-rotas)** — genetic algorithm for multi-drone delivery routing in 3D under fuel and payload constraints, with long routes decomposed across parallel drones.
+**[Drone route optimizer](https://github.com/rappudo/drone-route-optimizer)** — genetic algorithm for multi-drone delivery routing in 3D under fuel and payload constraints, with long routes decomposed across parallel drones.
 
 ---
 
